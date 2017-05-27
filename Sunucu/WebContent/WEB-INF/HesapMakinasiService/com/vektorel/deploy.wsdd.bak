@@ -1,0 +1,42 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from HesapMakinasiService WSDL service -->
+
+  <service name="HesapMakinasi" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://vektorel.com"/>
+      <parameter name="wsdlServiceElement" value="HesapMakinasiService"/>
+      <parameter name="schemaQualified" value="http://vektorel.com"/>
+      <parameter name="wsdlServicePort" value="HesapMakinasi"/>
+      <parameter name="className" value="com.vektorel.HesapMakinasiSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="HesapMakinasi"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="bolme" qname="operNS:bolme" xmlns:operNS="http://vektorel.com" returnQName="retNS:bolmeReturn" xmlns:retNS="http://vektorel.com" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:veri1" xmlns:pns="http://vektorel.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:veri2" xmlns:pns="http://vektorel.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="toplama" qname="operNS:toplama" xmlns:operNS="http://vektorel.com" returnQName="retNS:toplamaReturn" xmlns:retNS="http://vektorel.com" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:veri1" xmlns:pns="http://vektorel.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:veri2" xmlns:pns="http://vektorel.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="carpma" qname="operNS:carpma" xmlns:operNS="http://vektorel.com" returnQName="retNS:carpmaReturn" xmlns:retNS="http://vektorel.com" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:veri1" xmlns:pns="http://vektorel.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:veri2" xmlns:pns="http://vektorel.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="cikarma" qname="operNS:cikarma" xmlns:operNS="http://vektorel.com" returnQName="retNS:cikarmaReturn" xmlns:retNS="http://vektorel.com" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:veri1" xmlns:pns="http://vektorel.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:veri2" xmlns:pns="http://vektorel.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="toplama carpma cikarma bolme"/>
+
+  </service>
+</deployment>
