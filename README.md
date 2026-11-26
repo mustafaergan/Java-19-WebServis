@@ -19,7 +19,7 @@ hesap makinesi servisi ve istemcisi, Jersey (JAX-RS) ile JSON dönen basit bir R
 
 - Java 8, Servlet 3.0, Tomcat 9 (Eclipse sunucu ayarına göre)
 - SOAP: Apache Axis 1.x, JAX-RPC (jar'lar `WEB-INF/lib` altında)
-- REST (`KullaniciServisi`, Maven): Jersey 1.8 (`jersey-server`, `jersey-json`), Gson 2.8.0
+- REST (`KullaniciServisi`, Maven): Jersey 1.8 (`jersey-server`, `jersey-json`), Gson 2.8.9
 
 ## Çalıştırma
 
